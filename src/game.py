@@ -13,25 +13,26 @@ def validate_direction(direction):
 def slide_values(value_row):
     output_row = value_row.copy()
 
-    # Add the same values from left to right
     i = len(output_row) - 1
-    while i > 0:
-        if output_row[i] == output_row[i - 1]:
-            output_row[i] *= 2
-            output_row[i - 1] = 0
-            i -= 1
-        i -= 1
+    while i >= 0:
+        current = output_row[i]
+        ii = i - 1
+        while ii >= 0:
+            before = output_row[ii]
 
-    # Shift all the values over 0
-    i = 0
-    while i < len(output_row):
-        ii = 0
-        while ii < len(output_row) - 1:
-            if output_row[ii + 1] == 0:
-                output_row[ii + 1] = output_row[ii]
+            if current == 0:
+                output_row[i] = before
                 output_row[ii] = 0
-            ii += 1
-        i += 1
+                current = before
+            elif current == before:
+                output_row[i] = current * 2
+                output_row[ii] = 0
+                break
+            elif before != 0:
+                break
+
+            ii -= 1
+        i -= 1
 
     return output_row
 
