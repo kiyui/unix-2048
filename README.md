@@ -1,6 +1,20 @@
 # unix-2048
 Play 2048, the **UNIX** way.
 
+- Using pipes, the correct way:
+```
+$ ./src/game.py 3 --board 0,0,0,0,0,0,0,0,0,0,0,2,2,4,0,8 | ./src/add_random.py
+> 0,2,0,0,0,0,0,0,0,0,0,2,0,2,4,8
+$ ./src/game.py 1 --board 0,2,0,0,0,0,0,0,0,0,0,2,0,2,4,8 | ./src/add_random.py
+> 0,0,0,0,0,0,0,0,0,0,0,2,2,4,4,8
+$ ./src/game.py 3 --board 0,0,0,0,0,0,0,0,0,0,0,2,2,4,4,8 | ./src/add_random.py
+> 0,0,0,0,0,0,0,0,2,0,0,2,0,2,8,8
+$ ./src/game.py 3 --board 0,0,0,0,0,0,0,0,2,0,0,2,0,2,8,8 | ./src/add_random.py
+> 0,0,2,0,0,0,0,0,0,0,0,4,0,0,2,16
+```
+- Using a script hacked together in 30 seconds:
+![demo of 2048.sh](./2048.gif)
+
 ## setup
 Make sure you have Python & Pip 3 installed. Next, install `pipenv`:
 ```sh
@@ -19,6 +33,10 @@ pipenv shell
 All individuals components inside `src/` can now be run:
 ```sh
 ./game.py 3 --board 0,0,0,0,0,0,2,0,0,0,4,8,0,4,8,32 | ./add_random.py | ./view.py
+```
+An example game is available as:
+```
+./2048.sh
 ```
 
 ## usage
