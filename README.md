@@ -59,3 +59,13 @@ optional arguments:
   -h, --help     show this help message and exit
   --board BOARD  The 2048 game board as a CSV string
 ```
+
+## running tests
+To run the test suite:
+```
+pipenv run pytest
+```
+To watch the files for changes:
+```
+pipenv run ptw
+```
