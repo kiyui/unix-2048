@@ -1,3 +1,7 @@
+# migration notice
+
+This repository has moved to [Codeberg](https://codeberg.org/kiyui/unix-2048).
+
 # unix-2048
 Play 2048, the **UNIX** way.
 
